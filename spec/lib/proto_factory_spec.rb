@@ -82,6 +82,18 @@ describe ProtoFactory do
     B::C::Factory::Y.should == YetAnotherY
   end
 
+  it "should not look for const in parent modules if recursive option set to false" do
+    B::C.create_factory
+    B::C::Factory.add_mapping(:y, :other_y, :recursive => false)
+    lambda { B::C::Factory::Y }.should raise_error(NameError)
+  end
+
+  it "should look for const in other module" do
+    B::C.create_factory
+    B::C::Factory.add_mapping(:y, :other_x, :search_in => ModuleA)
+    B::C::Factory::Y.should == ModuleA::OtherX
+  end
+
   it "should raise error when mapping can't be resoved" do
     B::C.create_factory
     B::C::Factory.add_mapping(:y, :non_existent_y)
