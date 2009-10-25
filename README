@@ -1,13 +1,23 @@
 FactoryModule
 =============
 
-Introduction goes here.
+Here's an implementation of Factory pattern. Dispite the fact
+that ruby is highly dynamic language and can happily live
+without generative patters, I find it useful in some situations.
+For example if some plugin wants to allow its users to subcalss
+models which are instantiated somewhere inside it's codebase.
+Using this pattern in such cases can help to avoid
+'alias_method_chain' styled "hidden inheritance".
 
 
 Example
 =======
 
-Example goes here.
+Please find a basic example in examples/visitors.rb
+
+Some extra thoughts can be found at:
+
+http://complicated-simplicity.com
 
 
-Copyright (c) 2009 [name of plugin creator], released under the MIT license
+Copyright (c) 2009 [Serge Balyuk], released under the MIT license
