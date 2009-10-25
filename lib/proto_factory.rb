@@ -30,7 +30,9 @@ module ProtoFactory
   end
 
   def non_recursive_const_get(mod, const_name)
-    mod.const_get(const_name) if mod.const_defined?(const_name)
+    mod.const_get(const_name)
+  rescue NameError
+    nil
   end
 
   def recursive_const_get(mod, const_name)
