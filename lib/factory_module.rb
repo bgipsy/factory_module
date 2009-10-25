@@ -1,1 +1,1 @@
-# FactoryModule
+require 'proto_factory'
